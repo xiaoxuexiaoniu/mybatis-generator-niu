@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 引入配置文件 -->
+    <properties resource="oracle/oracle.properties"/>
+
+	<!-- 指定数据连接驱动jar地址 -->
+	<classPathEntry location="${jdbc.mybatisGenerator.classPath}" />
+	
+	<!-- 一个数据库一个context -->
+	<context id="oracleContext" targetRuntime="MyBatis3">
+		<property name="autoDelimitKeywords" value="false" />
+		<property name="javaFileEncoding" value="UTF-8" />
+		<property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+		<property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+		<property name="suppressTypeWarnings" value="true" />
+
+		<!-- 注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+			<property name="addRemarkComments" value="true" />
+			<property name="suppressDate" value="false" />
+			<property name="dateFormat" value="yyyy-MM-dd HH:mm:ss" />
+		</commentGenerator>
+
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="${jdbc.oracle.driverClassName}"
+			connectionURL="${jdbc.oracle.url}" 
+			userId="${jdbc.oracle.username}"
+			password="${jdbc.oracle.password}">
+		</jdbcConnection>
+
+		<!-- 类型转换 -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="acm.entity"
+							targetProject="C:\Users\lcs\Desktop\cbbb">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="acm.mybatis.xml"
+						 targetProject="C:\Users\lcs\Desktop\cbbb">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="acm.mybatis.mapper"
+							 targetProject="C:\Users\lcs\Desktop\cbbb"
+							 type="XMLMAPPER">
+			<property name="enableSubPackages" value="true"/>
+		</javaClientGenerator>
+
+		<table tableName="T_FLT_FSL" domainObjectName="TFltFslEntity"
+			   enableCountByExample="false" enableUpdateByExample="false"
+			   enableDeleteByExample="false" enableSelectByExample="false"
+			   selectByExampleQueryId="false">
+			<generatedKey column="FSL_ID" sqlStatement="select SEQ_T_FLT_FSL.NEXTVAL as fslId from dual"/>
+		</table>
+
+		<table tableName="T_FLT_FSP" domainObjectName="TFltFspEntity"
+			   enableCountByExample="false" enableUpdateByExample="false"
+			   enableDeleteByExample="false" enableSelectByExample="false"
+			   selectByExampleQueryId="false">
+			<generatedKey column="FSP_ID" sqlStatement="select SEQ_T_FLT_FSP.NEXTVAL as fspId from dual"/>
+		</table>
+
+	</context>
+</generatorConfiguration>
