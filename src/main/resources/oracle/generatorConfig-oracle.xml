@@ -36,18 +36,18 @@
 		</javaTypeResolver>
 
 		<javaModelGenerator targetPackage="acm.entity"
-							targetProject="C:\Users\lcs\Desktop\cbbb">
+							targetProject="${jdbc.niumybatisGen.classPath}">
 			<property name="enableSubPackages" value="true"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 
 		<sqlMapGenerator targetPackage="acm.mybatis.xml"
-						 targetProject="C:\Users\lcs\Desktop\cbbb">
+						 targetProject="${jdbc.niumybatisGen.classPath}">
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 
 		<javaClientGenerator targetPackage="acm.mybatis.mapper"
-							 targetProject="C:\Users\lcs\Desktop\cbbb"
+							 targetProject="${jdbc.niumybatisGen.classPath}"
 							 type="XMLMAPPER">
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
